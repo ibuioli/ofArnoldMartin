@@ -2,11 +2,12 @@
 
 ofArnoldMartin::ofArnoldMartin()
 {
-    mov.loadMovie("video.mov");
-    mov.play();
+    mov.loadMovie("video.mp4");
+    aud.loadSound("audio.mp3", true);
+    aud.play();
     ofSetBackgroundAuto(false);
     ofBackground(0, 0, 0);
-    ofSetFrameRate(30);
+    ofSetFrameRate(24);
 }
 
 //--------------------------------------------------------------
@@ -27,10 +28,18 @@ void ofArnoldMartin::update(float velocidad_, float bucle_, float reproduccion_)
 
     mov.setPosition(a);
     mov.update();
+
+    aud.setPosition(a);
+
+    if(a >= 1){
+        mov.stop();
+        aud.stop();
+    }
 }
 
 //--------------------------------------------------------------
 void ofArnoldMartin::draw(){
-
-    mov.draw(0,0,ofGetWidth(),ofGetHeight());
+    if(a < 1){
+        mov.draw(0,0,ofGetWidth(),ofGetHeight());
+    }
 }

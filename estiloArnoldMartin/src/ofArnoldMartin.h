@@ -9,10 +9,12 @@ class ofArnoldMartin
         void update(float v, float b, float r);
 		void draw();
 
-		float a, c;
+		float a;
+		int c;
 		float velocidad, bucle, reproduccion;
 
         ofVideoPlayer mov;
+        ofSoundPlayer aud;
         ofArnoldMartin();
     protected:
     private:
