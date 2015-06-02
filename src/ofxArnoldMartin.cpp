@@ -1,17 +1,15 @@
-#include "ofArnoldMartin.h"
+#include "ofxArnoldMartin.h"
 
-ofArnoldMartin::ofArnoldMartin()
+ofxArnoldMartin::ofxArnoldMartin()
 {
     mov.loadMovie("video.mp4");
     aud.loadSound("audio.mp3", true);
     aud.play();
-    ofSetBackgroundAuto(false);
-    ofBackground(0, 0, 0);
     ofSetFrameRate(24);
 }
 
 //--------------------------------------------------------------
-void ofArnoldMartin::update(float velocidad_, float bucle_, float reproduccion_){
+void ofxArnoldMartin::update(float velocidad_, float bucle_, float reproduccion_){
     velocidad = velocidad_;
     bucle = bucle_;
     reproduccion = reproduccion_;
@@ -21,7 +19,7 @@ void ofArnoldMartin::update(float velocidad_, float bucle_, float reproduccion_)
     if(c > 0 && c < bucle){
         a += velocidad;
     }else if(c > bucle && c < reproduccion){
-        a += -velocidad;
+        a -= velocidad;
     }else if(c > reproduccion){
         c = 0;
     }
@@ -38,8 +36,14 @@ void ofArnoldMartin::update(float velocidad_, float bucle_, float reproduccion_)
 }
 
 //--------------------------------------------------------------
-void ofArnoldMartin::draw(){
+void ofxArnoldMartin::draw(){
     if(a < 1){
         mov.draw(0,0,ofGetWidth(),ofGetHeight());
+    }else{
+        ofPushStyle();
+        ofSetColor(0,0,0);
+        ofFill();
+        ofRect(0, 0, ofGetWidth(), ofGetHeight());
+        ofPopStyle();
     }
 }

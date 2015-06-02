@@ -1,9 +1,9 @@
-#ifndef OFARNOLDMARTIN_H
-#define OFARNOLDMARTIN_H
+#ifndef OFXARNOLDMARTIN_H
+#define OFXARNOLDMARTIN_H
 
 #include "ofMain.h"
 
-class ofArnoldMartin
+class ofxArnoldMartin
 {
     public:
         void update(float v, float b, float r);
@@ -15,9 +15,9 @@ class ofArnoldMartin
 
         ofVideoPlayer mov;
         ofSoundPlayer aud;
-        ofArnoldMartin();
+        ofxArnoldMartin();
     protected:
     private:
 };
 
-#endif // OFARNOLDMARTIN_H
+#endif // OFXARNOLDMARTIN_H
